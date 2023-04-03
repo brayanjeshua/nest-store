@@ -3,6 +3,8 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
@@ -32,6 +34,7 @@ export class ProductsController {
 
   // Poner ids dinamicos a lo ultimo
   @Get(':productId')
+  @HttpCode(HttpStatus.ACCEPTED)
   getOne(@Param('productId') productId: string) {
     return {
       message: `product: ${productId}`,
